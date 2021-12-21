@@ -1,0 +1,83 @@
+
+<div class="container">
+  <div class="heading">
+    <h3>Register</h3>
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </div>
+
+  <div class="main-section">
+    <form [formGroup]="userForm">
+       <div class="form-group">
+        <div class="first-section">
+          <div class="image-upload">
+            <img [src]="url" style="height: 150px; width: 150px;" alt="" />
+            <input type="file" (change)="onSelectFile($event)"> 
+          </div>
+          </div>
+      </div>
+  
+
+    <div class="second-section">
+      <div class="name-section">
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="first_name" placeholder="Enter first name">
+          
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="last_name" placeholder="Enter last name">
+         
+        </div>
+
+       
+
+        <div class="form-group">
+          <input class="form-control" type="email" formControlName="email" placeholder="Email">
+          
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" type="number" formControlName="phone" placeholder="(541) 754-3010">
+         
+        </div>
+
+        <div class="form-group">
+          <label class="age">Age</label>
+          <ngx-slider class="slider" [(value)]="value" [options]="options" formControlName="age"></ngx-slider>
+        </div>
+
+        <div class="form-group">
+          <select class="form-control"  id="state" formControlName="state">
+            <option value="" disabled>State</option>
+            <option *ngFor="let state of states" [value]="state.name">{{state.name}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <select class="form-control" id="country" formControlName="country">
+            <option value="" disabled>Country</option>
+            <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <textarea class="form-control" type="text" formControlName="address" placeholder="Enter Address"></textarea>
+        </div>
+        
+       <div class="form-group">
+            <input class="checkbox-input" type="checkbox" formControlName="newsletter">
+            <label for="checkbox" class="checkbox">Subscribe to newsletter</label>
+      </div>
+
+      <div class="form-group">
+        <div class="button-group">
+          <button class="cancel">Cancel</button>
+          <button class="submit" [disabled]="userForm.invalid" type="submit" (click)="onSubmit()">Submit</button>
+        </div>
+      </div>
+
+      </div>
+</div>
+</form>
+</div>
+</div>
